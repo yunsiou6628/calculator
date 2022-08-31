@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./reset.css">
+
+  <style>
+    /* 背景 */
+    .wrapper {
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(0deg, rgb(170, 177, 255), rgb(253, 223, 162));
+      position: relative;
+      overflow: hidden;
+      transform: translate3d(0, 0, 0);
+      z-index: -1;
+    }
+
+    .wave.one {
+      background: linear-gradient(0deg, rgb(255, 187, 236), rgb(255, 223, 169));
+      width: 2300px;
+      height: 2300px;
+      border-radius: 45%;
+      opacity: 0.3;
+      position: absolute;
+      top: -30%;
+      left: -10%;
+      overflow: hidden;
+      margin-top: -1110px;
+      transform-origin: center;
+      animation: drift 30s infinite linear;
+    }
+
+    .wave.two {
+      background: linear-gradient(0deg, rgb(255, 232, 186), rgb(244, 170, 255));
+      width: 2300px;
+      height: 2300px;
+      border-radius: 45%;
+      opacity: 0.3;
+      position: absolute;
+      top: -30%;
+      left: -10%;
+      margin-top: -1120px;
+      overflow: hidden;
+      transform-origin: center;
+      animation: drift 40s infinite linear;
+    }
+
+    .wave.three {
+      background: linear-gradient(0deg, rgb(248, 202, 255), rgb(255, 232, 186));
+      width: 2300px;
+      height: 2300px;
+      border-radius: 45%;
+      opacity: 0.3;
+      position: absolute;
+      top: -30%;
+      left: -10%;
+      margin-top: -1130px;
+      overflow: hidden;
+      transform-origin: center;
+      animation: drift 50s infinite linear;
+    }
+
+
+    /* 背景動畫設定 */
+    @keyframes drift {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* 計算機樣式 */
+    #table1-wrap {
+      position: absolute;
+      width: 21rem;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgb(253, 242, 255);
+      box-shadow: 3px 3px 5px 3px rgba(110, 110, 110, 0.2);
+      border-radius: 30px;
+      padding: 3px 20px;
+      overflow: hidden;
+    }
+
+    #table2-wrap {
+      position: absolute;
+      left: 50%;
+      top: 55%;
+      transform: translate(-50%, -50%);
+      padding: 15px;
+      background-color: rgb(253, 242, 255);
+      box-shadow: 3px 3px 5px 3px rgba(110, 110, 110, 0.2);
+      border-radius: 30px;
+    }
+
+    #table2 {
+      opacity: 0.8;
+    }
+
+    tr,
+    td {
+      padding: 2px;
+    }
+
+    td {
+      width: 80px;
+      height: 80px;
+      font-size: 50px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      text-align: center;
+      vertical-align: middle;
+
+      /* 文字漸層 */
+      background: linear-gradient(50deg, rgb(237, 119, 255), rgb(255, 199, 86));
+      background: -webkit-linear-gradient(50deg, rgb(237, 119, 255), rgb(255, 199, 86));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    span {
+      width: 70px;
+      line-height: 70px;
+      display: inline-block;
+      border: 6px outset rgba(255, 197, 197, 0.3);
+      border-radius: 30%;
+      animation: animate 3s infinite;
+      transition: 2s;
+    }
+
+    .r2 span {
+      line-height: 156px;
+      border-radius: 25px;
+    }
+
+    .c2 span {
+      width: 156px;
+      border-radius: 25px;
+    }
+
+    /* 點擊動畫 */
+    td span:active {
+      border: 6px inset rgba(255, 197, 197, 0.3);
+    }
+
+    @keyframes animate {
+      0% {
+        background: linear-gradient(0deg, rgb(237, 120, 255), rgb(255, 195, 75));
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      50% {
+        background: linear-gradient(0deg, rgb(255, 195, 75), rgb(237, 120, 255));
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      100% {
+        background: linear-gradient(0deg, rgb(237, 120, 255), rgb(255, 195, 75));
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 背景 -->
+  <div class="wrapper">
+    <div class="wave one"></div>
+    <div class="wave two"></div>
+    <div class="wave three"></div>
+  </div>
+
+  <!-- 計算機 -->
+  <div id="table1-wrap">
+    <table id="table1">
+      <tr>
+        <td colspan="4" id='input'>
+          <div>0</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="table2-wrap">
+    <table id="table2">
+      <tr>
+        <td><span>C</span></td>
+        <td><span>/</span></td>
+        <td><span>*</span></td>
+        <td><span>-</span></td>
+      </tr>
+      <tr>
+        <td><span>7</span></td>
+        <td><span>8</span></td>
+        <td><span>9</span></td>
+        <td rowspan="2" class="r2"><span>+</span></td>
+      </tr>
+      <tr>
+        <td><span>4</span></td>
+        <td><span>5</span></td>
+        <td><span>6</span></td>
+      </tr>
+      <tr>
+        <td><span>1</span></td>
+        <td><span>2</span></td>
+        <td><span>3</span></td>
+        <td rowspan="2" class="r2"><span>=</span></td>
+      </tr>
+      <tr>
+        <td colspan="2" class="c2"><span>0</span></td>
+        <td><span>.</span></td>
+      </tr>
+    </table>
+  </div>
+  <script>
+    const input = document.getElementById('input')
+    const tds = document.querySelectorAll('td:not(#input)')
+
+    for (const td of tds) {
+      td.onclick = () => {
+        const text = td.innerText
+        if (text === '=') {
+          // 執行算式
+          input.innerText = eval(input.innerText)
+        } else if (text === 'C') {
+          // 重設
+          input.innerText = '0'
+        } else {
+          // 一般按鍵
+          if (input.innerText === '0') {
+            input.innerText = text
+          } else {
+            input.innerText += text
+          }
+        }
+      }
+    }
+
+    document.onkeydown = event => {
+      if (event.key === 'Enter') {
+        input.innerText = eval(input.innerText)
+      } else if (
+        !isNaN(parseInt(event.key)) ||
+        event.key === '+' ||
+        event.key === '-' ||
+        event.key === '*' ||
+        event.key === '/' ||
+        event.key === '.'
+      ) {
+        if (input.innerText === '0') {
+          input.innerText = event.key
+        } else {
+          input.innerText += event.key
+        }
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
